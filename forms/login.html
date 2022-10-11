@@ -223,13 +223,22 @@
         }
         #success {
 	    font-size: 20px;
-        background: Yellow;
-        color: red;
+        padding: 1rem; 
+        color: #154b4b;
         padding: 1rem;
-        margin: auto
+        margin: auto;
+        text-align: center;
+
+        
         }
         #success p {
 	    font-size: 26px;
+        padding: 1rem;
+        font-weight: bold;
+        }
+        i{
+         font-size: 64px;
+         color: #154b4b;
         }
      </style>
      <title>Contact Us</title>
@@ -262,7 +271,10 @@
                 </div>
             </form> 
             <div id="success" style="display: none">
+                <i class="fa fa-check-circle" style="font-size:64px;color: #154b4b"></i>
                 <p>Form Submitted Successfully!</p>
+                <a href="#home" id="back-btn">submit again</a>
+                
            </div>
         </div>
     </div>
@@ -272,6 +284,7 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxoSYsN8JUIm9gSVswIqqcX9cZGturlFFyZa9egY2M8oOWpMOS3Porovp2hbQW3aXWNiA/exec'
         const form = document.querySelector("#form1")
+        const backbtn = document.querySelector("#back-btn")
 
         form.addEventListener('submit', e => {
             e.preventDefault()
@@ -291,6 +304,14 @@
                 loader.style.display = "none";
                 alert("Something went wrong!")
             })
+            form.style.display = "none"
+
+        })
+
+        backbtn.addEventListener("click", function() {
+            form.reset()
+            form.style.display = ""; 
+            document.querySelector("#success").style.display ="none"
         })
     </script>
     </body>
@@ -349,4 +370,5 @@
             to{ bottom:0; opacity:1 }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </html>
